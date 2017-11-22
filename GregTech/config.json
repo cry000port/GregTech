@@ -1,0 +1,7 @@
+{
+  "enabled":true,
+  "ore_gen":{
+    "silver_ore":true,
+    "silver_small_ore":true
+  }
+}
