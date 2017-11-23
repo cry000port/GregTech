@@ -5,38 +5,38 @@ importLib("ToolType", "*");
 importLib("energylib", "*");
 
 var Saws =
-[[ItemID.IronSaw, 64],
-[ItemID.BronzeSaw, 48],
-[ItemID.LeadSaw, 16],
-[ItemID.GoldSaw, 32],
-[ItemID.SteelSaw, 128],
-[ItemID.SilverSaw, 16]]
+[[ItemID.sawIron, 64],
+[ItemID.sawBronze, 48],
+[ItemID.sawLead, 16],
+[ItemID.sawGold, 32],
+[ItemID.sawSteel, 128],
+[ItemID.sawSilver, 16]]
 
 var Mortars = 
-[[ItemID.IronMortar, 64],
-[ItemID.BronzeMortar, 48],
-[ItemID.DiamondMortar, 320],
-[ItemID.SteelMortar, 128],
-[ItemID.SilverMortar, 16],
-[ItemID.FlintMortar, 16],
-[ItemID.LeadMortar, 16],
-[ItemID.GoldMortar, 32]];
+[[ItemID.mortarIron, 64],
+[ItemID.mortarBronze, 48],
+[ItemID.mortarDiamond, 320],
+[ItemID.mortarSteel, 128],
+[ItemID.mortarSilver, 16],
+[ItemID.mortarFlint, 16],
+[ItemID.mortarLead, 16],
+[ItemID.mortarGold, 32]];
 
 var Hammers = 
-[[ItemID.IronHammer, 64], [ItemID.BronzeHammer, 48], [ItemID.DiamondHammer, 320], [ItemID.EmeraldHammer, 64], [ItemID.QuartzHammer, 16], [ItemID.StarHammer, 1280], [ItemID.SteelHammer, 128], [ItemID.SilverHammer, 16],
-[ItemID.GoldHammer, 32],
-[ItemID.LeadHammer, 16]];
+[[ItemID.hammerIron, 64], [ItemID.hammerBronze, 48], [ItemID.hammerDiamond, 320], [ItemID.hammerEmerald, 64], [ItemID.hammerQuartz, 16], [ItemID.hammerStar, 1280], [ItemID.hammerSteel, 128], [ItemID.hammerSilver, 16],
+[ItemID.hammerGold, 32],
+[ItemID.hammerLead, 16]];
 
 var Wrenchs = 
-[[ItemID.IronWrench, 64], [ItemID.GoldWrench, 32], [ItemID.BronzeWrench, 48], [ItemID.LeadWrench, 16], [ItemID.SteelWrench, 128], [ItemID.SilverWrench, 16]];
+[[ItemID.wrenchIron, 64], [ItemID.wrenchGold, 32], [ItemID.wrenchBronze, 48], [ItemID.wrenchLead, 16], [ItemID.wrenchSteel, 128], [ItemID.wrenchSilver, 16]];
 
 var Files =
-[[ItemID.BronzeFile, 48], [ItemID.SteelFile, 128], [ItemID.IronFile, 64], [ItemID.GoldFile, 32], [ItemID.SilverFile, 16]];
+[[ItemID.fileBronze, 48], [ItemID.fileSteel, 128], [ItemID.fileIron, 64], [ItemID.fileGold, 32], [ItemID.fileSilver, 16]];
 
 var Knifes =
-[[ItemID.LeadKnife, 16], [ItemID.SilverKnife, 16], [ItemID.BronzeKnife, 48], [ItemID.GoldKnife, 32],
-[ItemID.IronKnife, 64],
-[ItemID.SteelKnife, 128]];
+[[ItemID.knifeLead, 16], [ItemID.knifeSilver, 16], [ItemID.knifeBronze, 48], [ItemID.knifeGold, 32],
+[ItemID.knifeIron, 64],
+[ItemID.knifeSteel, 128]];
 
 
 var TILE_RENDERER_CONNECTION_GROUP = "gt-fuel";
@@ -157,149 +157,154 @@ function addMaterial(name, data)
 {
 	//ingot
 	if(data.ingot == 1){
-    IDRegistry.genItemID(name + "Ingot");
-    Item.createItem(name + "Ingot", name + " Ingot", {name: name + "_ingot"});
+    IDRegistry.genItemID("ingot" + name);
+    Item.createItem("ingot" + name, name + " Ingot", {name: name + "_ingot"});
 	}
 	//nugget
 	if(data.nugget == 1){
-	IDRegistry.genItemID(name + "Nugget");
-    Item.createItem(name + "Nugget", name + " Nugget", {name: name + "_nugget"});
+	IDRegistry.genItemID("nugget" + name);
+    Item.createItem("nugget" + name, name + " Nugget", {name: name + "_nugget"});
 	}
 	//long rod
 	if(data.longrod == 1){
-	IDRegistry.genItemID("Long" + name + "Rod");
-    Item.createItem("Long" + name + "Rod", "Long " + name + " Rod", {name: name + "_longrod"});
+	IDRegistry.genItemID("longrod" + name);
+    Item.createItem("longrod" + name, "Long " + name + " Rod", {name: name + "_longrod"});
 	}
 	//plate
 	if(data.plate == 1){
-	IDRegistry.genItemID(name+"Plate");
-    Item.createItem(name+"Plate", name+" Plate", {name: name + "_plate"});
+	IDRegistry.genItemID("plate" + name);
+    Item.createItem("plate" + name, name+" Plate", {name: name + "_plate"});
 	}
 	//dust
 	if(data.dust == 1){
-	IDRegistry.genItemID(name + "Dust");
-    Item.createItem(name + "Dust", name + " Dust", {name: name +"_dust"});
+	IDRegistry.genItemID("dust" + name);
+    Item.createItem("dust" + name, name + " Dust", {name: name +"_dust"});
 	}
 	//small dust
 	if(data.smalldust == 1){
-	IDRegistry.genItemID("SmallPile" + name + "Dust");
-    Item.createItem("SmallPile" + name + "Dust", "Small Pile of " + name + " Dust", {name: name + "_smalldust"});
+	IDRegistry.genItemID("smalldust" + name);
+    Item.createItem("smalldust" + name, "Small Pile of " + name + " Dust", {name: name + "_smalldust"});
 	}
 	//tiny dust
 	if(data.tinydust == 1){
-	IDRegistry.genItemID("TinyPile" + name + "Dust");
-    Item.createItem("TinyPile" + name + "Dust", "Tiny Pile of " + name + " Dust", {name: name + "_tinydust"});
+	IDRegistry.genItemID("tinydust" + name);
+    Item.createItem("tinydust" + name, "Tiny Pile of " + name + " Dust", {name: name + "_tinydust"});
 	}
 	//rod
 	if(data.rod == 1){
-	IDRegistry.genItemID(name + "Rod");
-    Item.createItem(name + "Rod", name + " Rod", {name: name + "_rod"});
+	IDRegistry.genItemID("rod" + name);
+    Item.createItem("rod" + name, name + " Rod", {name: name + "_rod"});
 	}
 	//bolt
 	if(data.bolt == 1){
-	IDRegistry.genItemID(name + "Bolt");
-    Item.createItem(name + "Bolt", name + " Bolt", {name: name + "_bolt"});  
+	IDRegistry.genItemID("bolt" + name);
+    Item.createItem("bolt" + name, name + " Bolt", {name: name + "_bolt"});  
 	}
 	//smallGear
 	if(data.smallGear == 1){
-	IDRegistry.genItemID("Small" + name + "Gear");
-    Item.createItem("Small" + name + "Gear", "Small" + name + " Gear", {name: name + "_smallgear"});  
+	IDRegistry.genItemID("smallgear" + name);
+    Item.createItem("smallgear" + name, "Small" + name + " Gear", {name: name + "_smallgear"});  
 	}
     //Gear
 	if(data.Gear == 1){
-	IDRegistry.genItemID(name + "Gear");
-    Item.createItem(name + "Gear", name + " Gear", {name: name + "_gear"});  
+	IDRegistry.genItemID("gear" + name);
+    Item.createItem("gear" + name, name + " Gear", {name: name + "_gear"});  
 	}
     //foil
 	if(data.foil == 1){
-	IDRegistry.genItemID(name + "Foil");
-    Item.createItem(name + "Foil", name + " Foil", {name: name + "_foil"});  
+	IDRegistry.genItemID("foil" + name);
+    Item.createItem("foil" + name, name + " Foil", {name: name + "_foil"});  
 	}
     //screw
 	if(data.screw == 1){
-	IDRegistry.genItemID(name + "Screw");
-    Item.createItem(name + "Screw", name + " Screw", {name: name + "_screw"});  
+	IDRegistry.genItemID("screw" + name);
+    Item.createItem("screw" + name, name + " Screw", {name: name + "_screw"});  
 	}
     //ring
 	if(data.ring == 1){
-	IDRegistry.genItemID(name + "Ring");
-    Item.createItem(name + "Ring", name + " Ring", {name: name + "_ring"});  
+	IDRegistry.genItemID("ring" + name);
+    Item.createItem("ring" + name, name + " Ring", {name: name + "_ring"});  
 	}
 	//crushedOre
 	if(data.crushedOre == 1){
-	IDRegistry.genItemID("Crushed" + name + "Ore");
-    Item.createItem("Crushed" + name + "Ore", "Crushed " + name + " Ore", {name: name + "_crushed"});  
+	IDRegistry.genItemID("crushedore" + name);
+    Item.createItem("crushedore" + name, "Crushed " + name + " Ore", {name: name + "_crushed"});  
 	}
     //purifiedOre
 	if(data.purifiedOre == 1){
-	IDRegistry.genItemID("Purified" + name + "Ore");
-    Item.createItem("Purified" + name + "Ore", "Purified " + name + " Ore", {name: name + "_purified"});  
+	IDRegistry.genItemID("purifiedore" + name);
+    Item.createItem("purifiedore" + name, "Purified " + name + " Ore", {name: name + "_purified"});  
 	}
     //impureDust
 	if(data.impureDust == 1){
-	IDRegistry.genItemID("Impure" + name + "Dust");
-    Item.createItem("Impure" + name + "Dust", "Impure " + name + " Dust", {name: name + "_impure"});  
+	IDRegistry.genItemID("impuredust" + name);
+    Item.createItem("impuredust" + name, "Impure " + name + " Dust", {name: name + "_impure"});  
 	}
 	//sawBlade
 	if(data.sawBlade == 1){
-	IDRegistry.genItemID(name + "SawBlade");
-    Item.createItem(name + "SawBlade", name + " Saw Blade", {name: name + "_sawblade"});  
+	IDRegistry.genItemID("sawblade" + name);
+    Item.createItem("sawblade" + name, name + " Saw Blade", {name: name + "_sawblade"});  
 	}
 }
 
 function addGems(name)
 {
 	//perfect
-    IDRegistry.genItemID("Perfect" + name);
-    Item.createItem("Perfect" + name, "Perfect " + name, {name: "Perfect_" + name});
+    IDRegistry.genItemID("perfect" + name);
+    Item.createItem("perfect" + name, "Perfect " + name, {name: "Perfect_" + name});
     //flawless
-    IDRegistry.genItemID("Flawless" + name);
-    Item.createItem("Flawless" + name, "Flawless " + name, {name: "Flawless_" + name});
+    IDRegistry.genItemID("flawless" + name);
+    Item.createItem("flawless" + name, "Flawless " + name, {name: "Flawless_" + name});
 	//defective
-    IDRegistry.genItemID("Defective" + name);
-    Item.createItem("Defective" + name, "Defective " + name, {name: "Defective_" + name});
+    IDRegistry.genItemID("defective" + name);
+    Item.createItem("defective" + name, "Defective " + name, {name: "Defective_" + name});
 	//split
-    IDRegistry.genItemID("Split" + name);
-    Item.createItem("Split" + name, "Split " + name, {name: "Split_" + name});
+    IDRegistry.genItemID("split" + name);
+    Item.createItem("split" + name, "Split " + name, {name: "Split_" + name});
 }
 
 function addTool(name, damage, data){
 	if(data.hammer == 1){
-		IDRegistry.genItemID(name + "Hammer");
-        Item.createItem(name + "Hammer", name + " Hammer", {name: name + "_hammer"}, {stack: 1});
-        Item.setMaxDamage(name + "Hammer", damage);
+		IDRegistry.genItemID("hammer" + name);
+        Item.createItem("hammer" + name, name + " Hammer", {name: name + "_hammer"}, {stack: 1});
+        Item.setMaxDamage("hammer" + name, damage);
 	}
 	if(data.wrench == 1){
-		IDRegistry.genItemID(name + "Wrench");
-        Item.createItem(name + "Wrench", name + " Wrench", {name: name + "_wrench"}, {stack: 1});
-        Item.setMaxDamage(name + "Wrench", damage);
+		IDRegistry.genItemID("wrench" + name);
+        Item.createItem("wrench" + name, name + " Wrench", {name: name + "_wrench"}, {stack: 1});
+        Item.setMaxDamage("wrench" + name, damage);
 	}
 	if(data.file == 1){
-		IDRegistry.genItemID(name + "File");
-        Item.createItem(name + "File", name + " File", {name: name + "_file"}, {stack: 1});
-        Item.setMaxDamage(name + "File", damage);
+		IDRegistry.genItemID("file" + name);
+        Item.createItem("file" + name, name + " File", {name: name + "_file"}, {stack: 1});
+        Item.setMaxDamage("file" + name, damage);
 	}
 	if(data.knife == 1){
-		IDRegistry.genItemID(name + "Knife");
-        Item.createItem(name + "Knife", name + " Knife", {name: name + "_knife"}, {stack: 1});
-        Item.setMaxDamage(name + "Knife", damage);
+		IDRegistry.genItemID("knife" + name);
+        Item.createItem("knife" + name, name + " Knife", {name: name + "_knife"}, {stack: 1});
+        Item.setMaxDamage("knife" + name, damage);
 	}
 	if(data.saw == 1){
-		IDRegistry.genItemID(name + "Saw");
-        Item.createItem(name + "Saw", name + " Saw", {name: name + "_saw"}, {stack: 1});
-        Item.setMaxDamage(name + "Saw", damage);
+		IDRegistry.genItemID("saw" + name);
+        Item.createItem("saw" + name, name + " Saw", {name: name + "_saw"}, {stack: 1});
+        Item.setMaxDamage("saw" + name, damage);
 	}
 	if(data.mortar == 1){
-		IDRegistry.genItemID(name + "Mortar");
-	    Item.createItem(name + "Mortar", name + " Mortar", {name: name + "_mortar"},{stack: 1});
-	    Item.setMaxDamage(name + "Mortar", damage);
+		IDRegistry.genItemID("mortar" + name);
+	    Item.createItem("mortar" + name, name + " Mortar", {name: name + "_mortar"},{stack: 1});
+	    Item.setMaxDamage("mortar" + name, damage);
 	}
 }
 function addTool1(name, data){
 	ToolAPI.addToolMaterial(name, {durability: data.dur, level: data.lvl, efficiency: data.eff, damage: data.dmg, enchantability: data.ench});
-	IDRegistry.genItemID(name + "Sword");	Item.createItem(name + "Sword", name + " Sword", {name: name + "Sword"}, {stack: 1});
-	IDRegistry.genItemID(name + "Shovel");	Item.createItem(name + "Shovel", name + " Shovel", {name: name + "Shovel"}, {stack: 1});
-	IDRegistry.genItemID(name + "Pickaxe");	Item.createItem(name + "Pickaxe", name + " Pickaxe", {name: name + "Pickaxe"}, {stack: 1});
-	IDRegistry.genItemID(name + "Axe");	Item.createItem(name + "Axe", name + " Axe", {name: name + "Axe"}, {stack: 1});
-	IDRegistry.genItemID(name + "Hoe");	Item.createItem(name + "Hoe", name + " Hoe", {name: name + "Hoe"}, {stack: 1});
+	IDRegistry.genItemID(name + "Sword");
+	Item.createItem(name + "Sword", name + " Sword", {name: name + "Sword"}, {stack: 1});
+	IDRegistry.genItemID(name + "Shovel");
+	Item.createItem(name + "Shovel", name + " Shovel", {name: name + "Shovel"}, {stack: 1});
+	IDRegistry.genItemID(name + "Pickaxe");
+	Item.createItem(name + "Pickaxe", name + " Pickaxe", {name: name + "Pickaxe"}, {stack: 1});
+	IDRegistry.genItemID(name + "Axe");
+	Item.createItem(name + "Axe", name + " Axe", {name: name + "Axe"}, {stack: 1});
+	IDRegistry.genItemID(name + "Hoe");
+	Item.createItem(name + "Hoe", name + " Hoe", {name: name + "Hoe"}, {stack: 1});
 }
