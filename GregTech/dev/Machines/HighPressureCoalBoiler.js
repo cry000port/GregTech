@@ -14,7 +14,7 @@ Callback.addCallback("PostLoaded", function(){
 		"bbb",
 		"b b",
 		"cfc"
-	], ['b', ItemID.SteelPlate, 0, 'c', 45, 0, 'f', 61, 0]);
+	], ['b', ItemID.plateSteel, 0, 'c', 45, 0, 'f', 61, 0]);
 });
 
 var guiHighPressureCoalBoiler = new UI.StandartWindow({
@@ -88,7 +88,7 @@ Fuel.count--;
 this.data.burn=720;
 }
 if(Math.random()<1/3&&this.data.burn==1){
-FuelD.id=ItemID.TinyPileDarkAshesDust;
+FuelD.id=ItemID.tinydustDarkAshes;
 FuelD.count++;
 }
 
