@@ -14,7 +14,7 @@ Callback.addCallback("PostLoaded", function(){
 		"ggg",
 		"sss",
 		"pcp"
-	], ['g', 20, 0, 's', ItemID.SilverPlate, 0, 'c', BlockID.BrikedBronzeHull, 0, 'p', BlockID.SmallBronzeFluidPipe, 0]);
+	], ['g', 20, 0, 's', ItemID.plateSilver, 0, 'c', BlockID.BrikedBronzeHull, 0, 'p', BlockID.SmallBronzeFluidPipe, 0]);
 });
 
 var guiSimpleSolarBoiler = new UI.StandartWindow({
